@@ -1,3 +1,9 @@
+1. git add.
+2. git commit -m"creando la ruta y el controlador de hola"
+3. git push
+
+
+
 # poryecto inventario
 ### incio del proyecto
 abre la termianl en la carpeta en la carpeta donde vas a aguardar el proyecto, y pon los siguientes comandos:
@@ -53,6 +59,29 @@ vamos a explicar cada una de las lineas
 - app.listen(PORT,()=>{ = que me escuche el puerto
   console.log(`server runing in port ${PORT}`) = me envio este mensaje para saber que todo esta ok 
   }) = estoy cerrando lo de arriba
+
+### rutas y controladores
+primero creamos las carpetas con
+
+- mkdr controllers models routes
+
+const holaRoutes = require("./routes/hola.Routes")
+app.use("/api/hola",holaRoutes)
+
+exports.holaMundo = (req,res)=>{
+  console.log("hola desde el controlador")
+  res.send("hola desde el controlador")
+}
+
+const express = require("express")
+const router = express.Router()
+const holaControllers = require("../controllers/holaController")
+
+router.get("/",holaControllers.holaMundo)
+
+module.exports = router;
+
+preguntarle a gloria si hay error
 
 
 
