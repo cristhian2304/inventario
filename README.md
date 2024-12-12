@@ -1,4 +1,4 @@
-1. git add.
+1. git add .
 2. git commit -m"creando la ruta y el controlador de hola"
 3. git push
 
@@ -82,6 +82,37 @@ router.get("/",holaControllers.holaMundo)
 module.exports = router;
 
 preguntarle a gloria si hay error
+
+### vamos a trabjar en el README de lo que vimos hoy
+creamos cuenta en mongo y la enlasamos con contraseña popis
+y nombre user
+
+creamos tambien carpeta inventario en controllers y hacemos el llamado
+const leerinventario = (req, res) => {
+  console.log("hola desde el controlador de inventario")
+  res.send("hola desde el controlador de inventario")
+}
+
+module.exports = { leerinventario }
+
+creamos tambien la carpeta inventarios en routes y hacemos el llamado
+const express = require("express")
+const {leerinventario} = require("../controllers/inventario")
+const router = express.Router()
+
+router.get("/", leerinventario)
+
+module.exports = router
+
+en index hicimos las siguientes dos enlaces
+const mongoose = require("mongoose")
+
+mongoose.connect(process.env.MONGO_URI)
+.then(console.log("connect to BD"))
+.catch(err=> console.error(err))
+
+relizar pruevas en postman
+tambien en git hasb
 
 
 
